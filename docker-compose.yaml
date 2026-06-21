@@ -1,0 +1,72 @@
+
+services:
+
+  postgres:
+
+    image: postgres:16-alpine
+
+    container_name: fintrackerhub_postgres
+
+    environment:
+
+      POSTGRES_USER: ${DB_USERNAME}
+
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+
+      POSTGRES_DB: ${DB_NAME}
+
+    ports:
+      - "${DB_PORT}:5432"
+
+    volumes:
+
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME}"]
+
+      interval: 10s
+
+      timeout: 5s
+
+      retries: 5
+
+    networks:
+
+      - fintrackerhub_network
+
+  pgadmin:
+
+    image: dpage/pgadmin4:latest
+
+    container_name: fintrackerhub_pgadmin
+
+    environment:
+
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+
+    ports:
+
+      - "5050:80"
+
+    depends_on:
+
+      - postgres
+
+    networks:
+
+      - fintrackerhub_network
+
+networks:
+
+  fintrackerhub_network:
+
+    driver: bridge
+
+volumes:
+
+  postgres_data:
+
