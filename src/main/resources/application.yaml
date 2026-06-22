@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: fintrackerhubBackend
+
+  profiles:
+    active: dev
+
+  main:
+    allow-bean-definition-overriding: true

@@ -1,1 +1,1 @@
-# finTrackerHubBackend
+# FinTrackerHub Backend
