@@ -3,9 +3,9 @@ services:
     image: postgres:16-alpine
     container_name: fintrackerhub_postgres
     environment:
-      POSTGRES_USER: ${DB_USERNAME}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: fintracker_user
+      POSTGRES_PASSWORD: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQEVkdXZpY3RvciJ9.c04AG4_y1a4uB1jv6M654rSimEP3hgICDsvPFScCO3o
+      POSTGRES_DB: fintrackerhub_dev
 
     ports:
       - "5432:5432"
@@ -22,8 +22,8 @@ services:
     image: dpage/pgadmin4:latest
     container_name: fintrackerhub_pgadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_DEFAULT_EMAIL: admin@fintrackerhub.com
+      PGADMIN_DEFAULT_PASSWORD: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6IkBFZHVwZ0FkbWluMTIzIn0.47TmoCG3T2twjXBzAvALLDm_ncBLJ8JFy4bzP5-w90
     ports:
       - "5050:80"
     depends_on:
