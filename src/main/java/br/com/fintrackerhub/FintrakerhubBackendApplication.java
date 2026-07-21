@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FintrackerhubBackendApplication {
+public class FintrakerhubBackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FintrackerhubBackendApplication.class, args);
+		SpringApplication.run(FintrakerhubBackendApplication.class, args);
 	}
 
 }
