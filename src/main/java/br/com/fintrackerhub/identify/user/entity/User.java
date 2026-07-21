@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class UserEntity extends BaseEntity {
+public class User extends BaseEntity {
 
     @Column(unique = true, nullable = false)
     private String email;
@@ -13,23 +13,19 @@ public class UserEntity extends BaseEntity {
     @Column(nullable = false)
     private String password;
 
-    public String getEmail() {
-        return email;
-    }
+    public String getEmail() { return email; }
 
-    public String getPassword() {
-        return password;
-    }
+    public String getPassword() { return password;}
 
-    protected UserEntity() {}
+    protected User() {}
 
-    protected UserEntity(String email, String password) {
+    protected User(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
-    public static UserEntity create(String email, String password) {
-        return new UserEntity(email, password);
+    public static User create(String email, String password) {
+        return new User(email, password);
     }
 
     protected void setEmail(String email) {
